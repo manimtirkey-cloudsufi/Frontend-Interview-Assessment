@@ -64,7 +64,7 @@ function ToastRow({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number) 
         gap: "var(--space-2)",
       }}
     >
-      {isWarning ? <>{icon} {toast.message}</> : (
+      {isWarning ? <>{icon}{toast.message}</> : (
         <>
           <span aria-hidden="true">{icon}</span>
           <span>{toast.message}</span>

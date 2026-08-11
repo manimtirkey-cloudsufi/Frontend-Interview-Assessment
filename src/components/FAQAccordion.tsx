@@ -82,7 +82,13 @@ function Panel({ children }: { children: ReactNode }) {
   const isOpen = openId === id;
   if (!isOpen) return null;
   return (
-    <div style={{ padding: "0 var(--space-4) var(--space-4)", color: "var(--color-text-muted)" }}>
+    <div
+      style={{
+        padding: "0 var(--space-4) var(--space-4)",
+        marginTop: "-10px",
+        color: "var(--color-text-muted)",
+      }}
+    >
       {children}
     </div>
   );

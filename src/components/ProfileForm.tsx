@@ -85,7 +85,7 @@ export default function ProfileForm() {
             style={errors.email ? { borderColor: "red" } : undefined}
           />
           {errors.email && (
-            <p style={{ color: "var(--color-error)", fontSize: "var(--font-size-sm)", marginTop: "4px" }}>
+            <p style={{ color: "var(--color-error)", fontSize: "var(--font-size-sm)", marginTop: "-14px" }}>
               {errors.email}
             </p>
           )}

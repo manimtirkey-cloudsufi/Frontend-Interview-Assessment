@@ -65,7 +65,7 @@ export default function SearchableUserList() {
               padding: "var(--space-2) var(--space-3)",
               borderBottom: "1px solid var(--color-border)",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#e0e7ff")}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#1a1d21")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
           >
             <span>{u.name}</span>

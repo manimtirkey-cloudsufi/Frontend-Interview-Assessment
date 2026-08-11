@@ -73,7 +73,7 @@ export default function UserTable() {
           onClick={goNext}
           disabled={page === totalPages}
           style={{
-            background: "#3b6fe0",
+            background: "#ff8800",
             color: "#fff",
             border: "none",
             borderRadius: "5px",
