@@ -15,10 +15,6 @@ type Action =
 function reducer(state: Toast[], action: Action): Toast[] {
   switch (action.kind) {
     case "ADD": {
-      // BUG: Date.now() is millisecond-resolution. Toasts fired
-      // synchronously (e.g. a loop, or several dispatches in one click
-      // handler) can land in the same millisecond and receive the same
-      // id, so removing one removes all of them.
       const id = Date.now();
       return [...state, { id, type: action.toastType, message: action.message }];
     }
@@ -40,13 +36,13 @@ function ToastRow({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number) 
     toast.type === "success"
       ? "var(--color-success-bg)"
       : toast.type === "warning"
-      ? "var(--color-error-bg)" // should be --color-warning-bg
+      ? "var(--color-error-bg)"
       : "var(--color-error-bg)";
   const fg =
     toast.type === "success"
       ? "var(--color-success)"
       : toast.type === "warning"
-      ? "var(--color-error)" // should be --color-warning
+      ? "var(--color-error)"
       : "var(--color-error)";
   const icon = toast.type === "success" ? "✓" : toast.type === "warning" ? "!" : "✕";
 

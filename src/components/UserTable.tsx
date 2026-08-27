@@ -21,9 +21,6 @@ const ROWS = makeRows(23);
 export default function UserTable() {
   const [page, setPage] = useState(1); // 1-indexed
 
-  // BUG: should be Math.ceil so a trailing partial page is reachable.
-  // With 23 rows / 5 per page this yields 4 instead of 5, silently
-  // dropping the last 3 rows from ever being shown.
   const totalPages = useMemo(() => Math.floor(ROWS.length / PAGE_SIZE), []);
 
   const pageRows = useMemo(() => {

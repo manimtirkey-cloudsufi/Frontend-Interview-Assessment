@@ -15,16 +15,11 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 function validate(values: ProfileFormValues): FieldErrors {
   const errors: FieldErrors = {};
 
-  // BUG: `>= 0` is always true (trim().length can never be negative), so an
-  // empty name is never flagged as required-missing.
   if (values.name.trim().length >= 0) {
-    // intentionally left blank — required check never fires
   } else {
     errors.name = "Name is required.";
   }
 
-  // BUG: condition is inverted — a well-formed email gets flagged as
-  // invalid, and a malformed one passes silently.
   if (EMAIL_RE.test(values.email)) {
     errors.email = "Enter a valid email address.";
   }

@@ -17,8 +17,6 @@ function Accordion({ children }: { children: ReactNode }) {
   const [openId, setOpenId] = useState<string | null>(null);
 
   const toggle = (id: string) => {
-    // Only ever opens the clicked item — clicking an already-open item
-    // should close it again, but never does.
     setOpenId(id);
   };
 
