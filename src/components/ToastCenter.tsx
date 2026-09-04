@@ -1,4 +1,7 @@
 import { useEffect, useReducer } from "react";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ErrorIcon from "@mui/icons-material/Error";
+import WarningIcon from "@mui/icons-material/Warning";
 
 type ToastType = "success" | "warning" | "error";
 
@@ -44,7 +47,7 @@ function ToastRow({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number) 
       : toast.type === "warning"
       ? "var(--color-error)"
       : "var(--color-error)";
-  const icon = toast.type === "success" ? "✓" : toast.type === "warning" ? "!" : "✕";
+  const Icon = toast.type === "success" ? CheckCircleIcon : toast.type === "warning" ? WarningIcon : ErrorIcon;
 
   return (
     <div
@@ -60,9 +63,13 @@ function ToastRow({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number) 
         gap: "var(--space-2)",
       }}
     >
-      {isWarning ? <>{icon}{toast.message}</> : (
+      {isWarning ? (
         <>
-          <span aria-hidden="true">{icon}</span>
+          <Icon aria-hidden="true" fontSize="small" />{toast.message}
+        </>
+      ) : (
+        <>
+          <Icon aria-hidden="true" fontSize="small" />
           <span>{toast.message}</span>
         </>
       )}
