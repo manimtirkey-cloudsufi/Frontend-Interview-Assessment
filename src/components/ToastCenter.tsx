@@ -1,7 +1,32 @@
-import { useEffect, useReducer } from "react";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import ErrorIcon from "@mui/icons-material/Error";
-import WarningIcon from "@mui/icons-material/Warning";
+import { useEffect, useReducer, type SVGProps } from "react";
+
+function CheckCircleIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="m8.5 12.5 2.5 2.5 4.5-5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function WarningIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+      <path d="M12 3.5 22 20.5H2z" strokeLinejoin="round" />
+      <path d="M12 10v4.5" strokeLinecap="round" />
+      <circle cx="12" cy="17.5" r="0.75" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function ErrorIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M9 9l6 6M15 9l-6 6" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 type ToastType = "success" | "warning" | "error";
 
@@ -65,11 +90,11 @@ function ToastRow({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number) 
     >
       {isWarning ? (
         <>
-          <Icon aria-hidden="true" fontSize="small" />{toast.message}
+          <Icon aria-hidden="true" />{toast.message}
         </>
       ) : (
         <>
-          <Icon aria-hidden="true" fontSize="small" />
+          <Icon aria-hidden="true" />
           <span>{toast.message}</span>
         </>
       )}
